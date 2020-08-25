@@ -8,14 +8,14 @@ sudo apt full-upgrade -y
 #install noisebox
 
 sudo apt-get install -y git
-if [ -d "/home/pi/noisebox" ]
+if [ -d "/home/pi/autonomous-noise-unit" ]
 then
-  sudo rm -r /home/pi/noisebox
+  sudo rm -r /home/pi/autonomous-noise-unit
 fi
 
-sudo -u pi mkdir /home/pi/noisebox
-sudo -u pi git clone https://github.com/noiseorchestra/autonomous-noise-unit.git /home/pi/noisebox
-pip3 install -r /home/pi/noisebox/requirements.txt
+sudo -u pi mkdir /home/pi/autonomous-noise-unit
+sudo -u pi git clone https://github.com/noiseorchestra/autonomous-noise-unit.git /home/pi/autonomous-noise-unit
+pip3 install -r /home/pi/autonomous-noise-unit/requirements.txt
 
 #install OLED dependencies
 
