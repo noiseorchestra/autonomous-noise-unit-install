@@ -6,8 +6,8 @@ After=multi-user.target
 Environment="JACK_NO_AUDIO_RESERVATION=1"
 LimitRTPRIO=infinity
 LimitMEMLOCK=infinity
-ExecStart=/usr/bin/python3 -u /home/pi/noisebox/noisebox.py
-WorkingDirectory=/home/pi/noisebox/
+ExecStart=/usr/bin/python3 -u /home/pi/autonomous-noise-unit/noisebox.py
+WorkingDirectory=/home/pi/autonomous-noise-unit/
 Restart=always
 RestartSec=2s
 TimeoutSec=infinity
