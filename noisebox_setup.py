@@ -88,6 +88,19 @@ if soundcard == 'none':
 print(green + 'Configuring OLED...' + res)
 copy(root + 'rpi_config/modules', '/etc/modules')
 
+# RPi HOSTNAME
+
+print(green + 'Configuring RPi hostname...' + res)
+print('127.0.1.' + id + ' noisebox' + id)
+
+with open('/etc/hostname', 'w') as hostname:
+    hostname.write('noisebox' + id)
+
+copy(root + 'rpi_config/hosts', '/etc/hosts')
+
+with open('/etc/hosts', 'a') as hosts:
+    hosts.write('127.0.1.' + id + ' noisebox' + id + '\n')
+
 # VPN
 
 if os.path.isfile(root + 'custom_config/vpncloud/vpncloud.txt'):
@@ -129,19 +142,6 @@ if os.path.isfile(root + 'custom_config/telegraf/telegraf.conf'):
     copy(root + 'custom_config/telegraf/telegraf.conf', '/etc/telegraf/telegraf.conf')
 else:
     print(green + 'Skipping telegraf configuration.' + res)
-
-# RPi HOSTNAME
-
-print(green + 'Configuring RPi hostname...' + res)
-print('127.0.1.' + id + ' noisebox' + id)
-
-with open('/etc/hostname', 'w') as hostname:
-    hostname.write('noisebox' + id)
-
-copy(root + 'rpi_config/hosts', '/etc/hosts')
-
-with open('/etc/hosts', 'a') as hosts:
-    hosts.write('127.0.1.' + id + ' noisebox' + id + '\n')
 
 print(green + '\nInstallation complete!' + res)
 print(green + '\nRebooting system.' + res)
