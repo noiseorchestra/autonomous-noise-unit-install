@@ -21,8 +21,9 @@ while true; do
 done
 
 # INSTALLER DEPENDENCIES
-sudo apt-get install python3-pip -y &> /dev/null
-sudo -H pip3 install enquiries colored &> /dev/null
+sudo apt-get update
+sudo apt-get install python3-pip -y
+sudo -H pip3 install enquiries colored
 
 # RUN noisebox_setup.py
 
