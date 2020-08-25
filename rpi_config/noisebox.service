@@ -1,0 +1,17 @@
+[Unit]
+Description=Start Noisebox
+After=multi-user.target
+
+[Service]
+Environment="JACK_NO_AUDIO_RESERVATION=1"
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+ExecStart=/usr/bin/python3 -u /home/pi/noisebox/noisebox.py
+WorkingDirectory=/home/pi/noisebox/
+Restart=always
+RestartSec=2s
+TimeoutSec=infinity
+User=pi
+
+[Install]
+WantedBy=multi-user.target
