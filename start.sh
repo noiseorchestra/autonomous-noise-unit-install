@@ -9,7 +9,7 @@ catch_err() {
   kill -l SIGINT >> /dev/null 2>&1
 }
 
-cat logo.txt
+cat /home/pi/autonomouse-noise-unit-install/logo.txt
 
 while true; do
     tput setaf 2; printf "\nWelcome! This script will setup your Raspberry Pi as a NoiseBox, do you want to continue (y/n)? : "; tput sgr0; read yn
@@ -26,4 +26,4 @@ sudo -H pip3 install enquiries colored &> /dev/null
 
 # RUN noisebox_setup.py
 
-sudo python3 ./noisebox_setup.py
+sudo python3 /home/pi/autonomouse-noise-unit-install/noisebox_setup.py
