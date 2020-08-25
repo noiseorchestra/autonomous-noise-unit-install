@@ -8,7 +8,7 @@ from colored import fg, attr
 green = fg(2)
 res = attr('reset')
 
-root = '/home/pi/autonomouse-noise-unit-install/'
+root = '/home/pi/autonomous-noise-unit-install/'
 
 # CONFIGURE NOISEBOX
 
