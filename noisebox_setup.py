@@ -31,7 +31,7 @@ subprocess.run('sudo bash ' + root + 'dependencies/noisebox.sh', shell=True)
 # NOISEBOX CONFIG FILE
 
 if os.path.isfile(root + 'custom_config/noisebox/config.ini'):
-    copy(root + 'custom_config/noisebox/config.ini', '/home/pi/autonomous-noise-box/config.ini')
+    copy(root + 'custom_config/noisebox/config.ini', '/home/pi/autonomous-noise-unit/config.ini')
 
 # SYSTEMD
 
