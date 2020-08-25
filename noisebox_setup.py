@@ -96,7 +96,7 @@ if os.path.isfile(root + 'custom_config/vpncloud/vpncloud.txt'):
 
     subprocess.run('sudo bash ' + root + 'dependencies/vpncloud.sh', shell=True)
     copy('/etc/vpncloud/example.net.disabled', '/etc/vpncloud/mynet.net')
-    f = open(file=root + 'custom_config/vpncloud/vpncloud.txt', mode='r')
+    f = open(root + 'custom_config/vpncloud/vpncloud.txt', mode='r')
     vpncloud_append = f.read()
     f.close()
 
@@ -105,12 +105,11 @@ if os.path.isfile(root + 'custom_config/vpncloud/vpncloud.txt'):
         vpncloud_config.write("ifup: 'ifconfig $IFNAME 10.0.0." + id + "/24 mtu 1500'\n")
         vpncloud_config.write('statsd_prefix: noisebox' + id + '\n')
 
-    f = open(file=root + 'custom_config/vpncloud/hosts.txt', mode='r')
+    f = open(root + 'custom_config/vpncloud/hosts.txt', mode='r')
     vpncloud_hosts = f.read()
     f.close()
 
     with open('/etc/hosts', 'a') as hosts:
-        # this isn't working
         hosts.write(str(vpncloud_hosts))
 
     subprocess.run('sudo systemctl enable vpncloud@mynet', shell=True)
