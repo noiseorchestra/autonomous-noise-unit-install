@@ -33,19 +33,6 @@ subprocess.run('sudo bash ' + root + 'dependencies/noisebox.sh', shell=True)
 if os.path.isfile(root + 'custom_config/autonomous-noise-unit/config.ini'):
     copy(root + 'custom_config/autonomous-noise-unit/config.ini', '/home/pi/autonomous-noise-unit/config.ini')
 
-# RPi HOSTNAME
-
-print(green + 'Configuring RPi hostname...' + res)
-print('127.0.1.' + id + ' noisebox' + id)
-
-copy(root + 'rpi_config/hosts', '/etc/hosts')
-
-with open('/etc/hosts', 'a') as hosts:
-    hosts.write('127.0.1.' + id + ' noisebox' + id + '\n')
-
-with open('/etc/hostname', 'w') as hostname:
-    hostname.write('noisebox' + id)
-
 # SYSTEMD
 
 print(green + '\nConfiguring Noisebox daemon...' + res)
@@ -143,6 +130,19 @@ if os.path.isfile(root + 'custom_config/telegraf/telegraf.conf'):
     copy(root + 'custom_config/telegraf/telegraf.conf', '/etc/telegraf/telegraf.conf')
 else:
     print(green + 'Skipping telegraf configuration.' + res)
+
+# RPi HOSTNAME
+
+print(green + 'Configuring RPi hostname...' + res)
+print('127.0.1.' + id + ' noisebox' + id)
+
+with open('/etc/hostname', 'w') as hostname:
+    hostname.write('noisebox' + id)
+
+copy(root + 'rpi_config/hosts', '/etc/hosts')
+
+with open('/etc/hosts', 'a') as hosts:
+    hosts.write('127.0.1.' + id + ' noisebox' + id + '\n')
 
 print(green + '\nInstallation complete!' + res)
 print(green + '\nRebooting system.' + res)
