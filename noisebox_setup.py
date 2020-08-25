@@ -41,7 +41,7 @@ print('127.0.1.' + id + ' noisebox' + id)
 copy(root + 'rpi_config/hosts', '/etc/hosts')
 
 with open('/etc/hosts', 'a') as hosts:
-    hosts.write('127.0.1.' + id + ' noisebox' + id)
+    hosts.write('127.0.1.' + id + ' noisebox' + id + '\n')
 
 with open('/etc/hostname', 'w') as hostname:
     hostname.write('noisebox' + id)
@@ -50,7 +50,7 @@ with open('/etc/hostname', 'w') as hostname:
 
 print(green + '\nConfiguring Noisebox daemon...' + res)
 
-subprocess.run('sudo cproot +  rpi_config/noisebox.service /lib/systemd/system/noisebox.service', shell=True)
+subprocess.run('sudo cp ' + root + 'rpi_config/noisebox.service /lib/systemd/system/noisebox.service', shell=True)
 subprocess.run('sudo systemctl daemon-reload', shell=True)
 subprocess.run('sudo systemctl enable noisebox.service', shell=True)
 
