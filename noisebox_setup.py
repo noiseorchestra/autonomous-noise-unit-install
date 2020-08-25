@@ -115,7 +115,7 @@ if os.path.isfile(root + 'custom_config/vpncloud/vpncloud.txt'):
 
     with open('/etc/vpncloud/mynet.net', 'a') as vpncloud_config:
         vpncloud_config.write(str(vpncloud_append))
-        vpncloud_config.write("ifup: 'ifconfig $IFNAME 10.0.0.' + id + '/24 mtu 1500'\n")
+        vpncloud_config.write("ifup: 'ifconfig $IFNAME 10.0.0." + id + "/24 mtu 1500'\n")
         vpncloud_config.write('statsd_prefix: noisebox' + id + '\n')
 
     f = open(file=root + 'custom_config/vpncloud/hosts.txt', mode='r')
