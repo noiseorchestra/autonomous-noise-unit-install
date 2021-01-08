@@ -15,7 +15,12 @@ fi
 
 sudo -u pi mkdir /home/pi/autonomous-noise-unit
 sudo -u pi git clone https://github.com/noiseorchestra/autonomous-noise-unit.git /home/pi/autonomous-noise-unit
+# use beta branch
+cd /home/pi/autonomous-noise-unit
+git checkout jacktrip-beta
+
 pip3 install -r /home/pi/autonomous-noise-unit/requirements.txt
+cd /home/pi
 
 #install OLED dependencies
 
