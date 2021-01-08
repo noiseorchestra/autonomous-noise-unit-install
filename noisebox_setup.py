@@ -35,6 +35,10 @@ if os.path.isfile(root + 'custom_config/noisebox/config.ini'):
     copy(root + 'custom_config/noisebox/config.ini', '/home/pi/autonomous-noise-unit/config.ini')
     subprocess.run('sudo chown pi:pi /home/pi/autonomous-noise-unit/config.ini', shell=True)
 
+# UPDATE JACKTRIP
+
+subprocess.run('bash ' + root + 'dependencies/jacktrip.sh', shell=True)
+
 # SYSTEMD
 
 print(green + '\nConfiguring Noisebox daemon...' + res)
